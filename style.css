@@ -4,8 +4,11 @@
 :root {
   --fs-header: 10rem;
   --fs-subheader: calc(var(--fs-header) * 0.3);
+
   --ff-primary: 'Megrim';
   --ff-secondary: 'Raleway';
+
+  --margin-cont: 8rem;
 }
 
 * {
@@ -25,12 +28,10 @@ body {
 
 main {
   position: relative;
-  height: auto;
 }
 
 section {
   width: 100%;
-  height: 100vh;
 }
 
 section,
@@ -52,8 +53,9 @@ a:focus {
 }
 
 .container {
-  position: absolute;
-  top: 20%;
+  position: relative;
+  top: var(--margin-cont);
+  margin-bottom: calc(var(--margin-cont) * 2);
   padding-left: calc(var(--fs-header) * 0.4);
 }
 
@@ -90,11 +92,15 @@ a:focus {
 }
 
 .aboutSection .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .aboutSection h2 {
   width: 15rem;
+  grid-column-start: 1;
+  grid-column-end: 2;
   margin-right: 5rem;
 }
 
@@ -102,6 +108,8 @@ a:focus {
   position: relative;
   width: 50%;
   top: calc(var(--fs-header) * 0.75);
+  grid-column-start: 2;
+  grid-column-end: 3;
   border-top: 2px solid #000;
 }
 
@@ -140,15 +148,28 @@ input:checked:after {
   transform: translate(-2rem, 0.75rem);
 }
 
+.hobbiesSection {
+  margin-bottom: -10rem;
+}
+
 .hobbiesSection .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .hobbiesSection .hobbiesContent {
+  grid-column-start: 1;
+  grid-column-end: 2;
   display: flex;
   flex-direction: column;
   padding-right: calc(var(--fs-header) * 2);
 }
+
+.hobbiesSection .titleSection {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
 .hobbiesSection .hobbySection {
   display: flex;
   flex-direction: column;
@@ -157,6 +178,11 @@ input:checked:after {
 
 .hobbiesSection .hobbySection h2 {
   margin-bottom: 0.5rem;
+  font-size: calc(var(--fs-header) * 0.18);
+}
+
+.hobbiesSection .hobbySection p {
+  font-size: calc(var(--fs-header) * 0.13);
 }
 
 .alwaysSection h2 {
@@ -165,6 +191,10 @@ input:checked:after {
   font-size: calc(var(--fs-header) * 0.5);
   text-transform: uppercase;
   transform: translateY(calc((var(--fs-header) ) - 7.5rem));
+}
+
+.storySection {
+  margin-bottom: 17rem;  
 }
 
 .storySection .titleSection {
@@ -184,9 +214,8 @@ footer {
   position: absolute;
   display: flex;
   flex-direction: row;
-  height: 5rem;
-  margin-top: -5rem;
   right: 0;
+  height: 5rem;
 }
 
 footer a {
