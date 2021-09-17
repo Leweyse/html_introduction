@@ -135,7 +135,7 @@ input[type="checkbox"] {
 input[type="checkbox"]::after {
   content: 'NO';
   position: absolute;
-  transform: translate(-2rem, 0.75rem);
+  transform: translate(-2rem, calc(var(--fs-subheader) * 0.3));
 }
 
 input:checked { 
